@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>goEngage</title>
+  <meta charset="utf-8"/>
+  <link rel="stylesheet" href="codemirror-5.16.0/lib/codemirror.css">
+  <link rel="stylesheet" href="codemirror-5.16.0/theme/monokai.css">
+  <script src="codemirror-5.16.0/lib/codemirror.js"></script>
+  <script src="codemirror-5.16.0/addon/edit/matchbrackets.js"></script>
+  <script src="codemirror-5.16.0/mode/go/go.js"></script>
+  <!-- mdl-->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en">
+  
+  <link rel="stylesheet" href="css/material.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script defer src="js/material.min.js"></script>
+
+  <style>.CodeMirror {border:1px solid #999; background:#ffc}</style>
+</head>
+<body class="mdl-color--grey-100 mdl-color-text--grey-700 mdl-base mdl-grid">
+
+  <div class="mdl-cell mdl-cell--1-col"></div>
+  <div class="mdl-cell mdl-cell--10-col">
+    <div id="ActionsCard" class="mdl-card mdl-grid mdl-shadow--6dp">
+      <button onclick="share()" class="mdl-cell mdl-cell--3-col mdl-button mdl-js-button mdl-button--raised 
+      mdl-js-ripple-effect mdl-button--accent" style="background-color:#5126ab">Share</button>
+      <div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--3-col">
+        <input type="url" id="shareLink" style="visibility: hidden;" class="mdl-textfield__input" type=url></input>
+      </div>
+      
+          <button onclick="loadLink()" class="mdl-cell mdl-cell--3-col mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="background-color:#00796b">load from Link</button>
+<div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--3-col">
+          <input id ="inputUrl" placeholder="https://play.golang.org/p/uFLpwgy2Ug" class=" mdl-textfield__input" type="url" pattern="https?:\/\/play.golang.org\/p\/.+"></input>
+       <span class="mdl-textfield__error">play.golang.org Links only</span>
+     </div>
+   </div>
+   <div id="EditorCard"  class="mdl-card mdl-shadow--6dp" style="background-color: #e2e4d9">
+    <div class="mdl-card__title">
+      <h1 class="mdl-card__title-text">Editor</h1>
+    </div>
+    <div class="Editor" id="Editor">
+      <article>
+        <form><textarea id="code" name="code">
+          package main
+
+          import (
+          "fmt"
+          "time"
+          )
+
+          func main() {
+          fmt.Println("time:",time.Now())
+          fmt.Printf("type somthing:")
+          var a string
+          fmt.Scan(&a)
+          fmt.Println("you typed ", a)
+        }
+
+      </textarea></form>
+    </article>
+    </div>
+    <div class="mdl-card__actions">
+      <button onclick="Run()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="background-color:#00bcd4">Run</button>
+      <button onclick="Format()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="background-color:#388e3c">Format</button>
+    </div>
+</div>
+<div id="TerminalCard"  class="mdl-card mdl-shadow--6dp" style="background-color:rgba(255, 255, 204, 0.42);
+">
+<div class="mdl-card__title">
+  <h1 class="mdl-card__title-text">Terminal</h1>
+</div>
+<article>
+  <form><textarea id="Terminal" name="Terminal"></textarea></form>
+</article>
+<div class="mdl-card__actions">
+  <button onclick="stopProgram()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" style="background-color:#e91c63;">Stop</button>
+</div>
+</div>
+</div>
+<div class="mdl-cell mdl-cell--1-col"></div>
+
+</body>
+<script src="js/app.js"></script>
+</html>

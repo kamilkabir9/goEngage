@@ -1,0 +1,28 @@
+html, body {
+	font-family: 'Roboto', 'Helvetica', sans-serif;
+	margin: 0;
+	padding: 0;
+}
+
+.mdl-card{
+	width: auto;
+	margin: 15px 0px 15px 0px;
+	min-height: auto;
+}
+
+.mdl-card__title{
+	padding: 10px;
+}
+
+.mdl-textfield{
+	padding: 0px;
+}
+
+.blockedInput {
+	background-color: #D3D3D3;
+}
+.CodeMirror-cursor{
+	width: auto; 
+	border: 0; 
+	background: rgba(0, 200, 0, .4); 
+}
