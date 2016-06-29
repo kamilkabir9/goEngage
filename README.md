@@ -16,4 +16,5 @@
 1. load samples 
 2. save named files
 3. load named files
-4. auto-complte
+4. autocomplete
+5. load import from non-stdLib 

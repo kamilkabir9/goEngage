@@ -24,7 +24,8 @@ type tty struct {
 }
 
 func init() {
-	os.Mkdir("genCodes", 0666)
+	os.Mkdir("genCodes", 0777)
+	os.Chmod("genCodes", 0777)
 	logFile, err := os.Create("log.txt")
 	if err != nil {
 		fmt.Println("ERR:", err)
