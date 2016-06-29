@@ -17,7 +17,7 @@ var Terminal = CodeMirror.fromTextArea(document.getElementById("Terminal"), {
 var lastInputFlag=false;
 var readPoint; //point in terminal to read STDIN from 
         // -----------------------websockets-----------------//
-        var programSocket = new WebSocket("ws://+"window.location.host+"/run");
+        var programSocket = new WebSocket("ws://"+window.location.host+"/run");
 
   // Write message on receive
   programSocket.onmessage = function(event) {
