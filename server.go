@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/kr/pty"
+	"github.com/pkg/browser"
 	"golang.org/x/net/html"
 	"golang.org/x/net/websocket"
 	"io"
@@ -171,9 +172,14 @@ func main() {
 	if serverport == ":" {
 		serverport = ":8080"
 	}
-	fmt.Println("starting server.go \n Listening @ localhost:", serverport)
+	fmt.Println("starting server.go \n Listening @ localhost", serverport)
 
-	err := http.ListenAndServe(serverport, nil)
+	err := browser.OpenURL(fmt.Sprintf("http://localhost%v", serverport))
+	if err != nil {
+		panic("Error: " + err.Error())
+	}
+
+	err = http.ListenAndServe(serverport, nil)
 	if err != nil {
 		panic("Error: " + err.Error())
 	}
